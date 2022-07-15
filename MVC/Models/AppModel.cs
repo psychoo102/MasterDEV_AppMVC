@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using MVC.Validations;
 
 namespace MVC.Models
@@ -7,7 +8,10 @@ namespace MVC.Models
     public class App
     {
         public int id { get; set; }
+        [Required]
+        [MinLength(3)]
         public string name { get; set; }
+        [Url()]
         public string www { get; set; }
         [IsSemanticVersion()]
         public string version { get; set; }
