@@ -1,0 +1,59 @@
+@page
+@model MVC.Pages.Apps.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.App[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.App[0].www)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.App[0].version)
+            </th>
+            <th>
+                Kiedy utworzono
+            </th>
+            <th>
+                Ostatnia aktualizacja
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.App) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.www)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updatedAt)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
