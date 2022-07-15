@@ -37,6 +37,7 @@ namespace MVC.Pages.Apps
             }
 
             App.createdAt = DateTime.UtcNow;
+            App.updatedAt = DateTime.UtcNow;
             _context.Apps.Add(App);
             await _context.SaveChangesAsync();
 

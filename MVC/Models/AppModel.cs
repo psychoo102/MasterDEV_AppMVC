@@ -10,6 +10,7 @@ namespace MVC.Models
         public string www { get; set; }
         public string version { get; set; }
         public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }
 

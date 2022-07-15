@@ -49,6 +49,7 @@ namespace MVC.Pages.Apps
             }
 
             _context.Attach(App).State = EntityState.Modified;
+            App.updatedAt = DateTime.UtcNow;
 
             try
             {
