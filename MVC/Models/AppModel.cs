@@ -10,11 +10,13 @@ namespace MVC.Models
         public int id { get; set; }
         [Required]
         [MinLength(3)]
-        public string name { get; set; }
+        public string? name { get; set; }
+        [Required]
         [Url()]
-        public string www { get; set; }
+        public string? www { get; set; }
+        [Required]
         [IsSemanticVersion()]
-        public string version { get; set; }
+        public string? version { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
     }

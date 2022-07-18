@@ -2,58 +2,69 @@
 @model MVC.Pages.Dashboard.Apps.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Aplikacje";
 }
 
-<h1>Index</h1>
+<h1>Lista aplikacji</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.App[0].name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.App[0].www)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.App[0].version)
-            </th>
-            <th>
-                Kiedy utworzono
-            </th>
-            <th>
-                Ostatnia aktualizacja
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.App) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.www)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.version)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createdAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.updatedAt)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row justify-content-end">
+    <div class="col-md-auto">
+        <a class="btn btn-success p-2" asp-page="create">Dodaj aplikację</a>
+    </div>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <table class="table dt-responsive nowrap w-100">
+            <thead>
+                <tr>
+                    <th>
+                        Nazwa aplikacji
+                    </th>
+                    <th>
+                        Adres WWW
+                    </th>
+                    <th>
+                        Wersja
+                    </th>
+                    <th>
+                        Kiedy utworzono
+                    </th>
+                    <th>
+                        Ostatnia aktualizacja
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.App)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.www)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.version)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.createdAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.updatedAt)
+                        </td>
+                        <td>
+                            <a class="w-auto btn btn-success p-2" asp-page="./Update" asp-route-id="@item.id">Aktualizuj</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col"></div>
+</div>

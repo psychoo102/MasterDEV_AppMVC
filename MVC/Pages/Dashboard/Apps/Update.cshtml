@@ -1,0 +1,40 @@
+@page
+@model MVC.Pages.Dashboard.Apps.UpdateModel
+
+@{
+    ViewData["Title"] = "Aktualizacja";
+}
+
+<h1>Aktualizacja aplikacji</h1>
+
+<h4>App</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppId" />
+            <div class="form-group">
+                <label asp-for="AppVersion" class="control-label">Wersja</label>
+                <input asp-for="AppVersion" class="form-control" />
+                <span asp-validation-for="AppVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectFiles" class="control-label">Plik:</label>
+                <input type="file" asp-for="ProjectFiles" class="form-control" />
+                <span asp-validation-for="ProjectFiles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Aktualizuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

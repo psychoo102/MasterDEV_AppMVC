@@ -11,8 +11,11 @@ namespace MVC.Models.Validations
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             string Version = (string)value;
-            if (Regex.Matches(Version, pattern).Count == 0) return new ValidationResult("Wersja nie jest poprawna");
-            return null;
+            if(Version != null)
+                if (Regex.Matches(Version, pattern).Count > 0)
+                    return null;
+            return new ValidationResult("Wersja nie jest poprawna");
+            
         }
     }
 }
