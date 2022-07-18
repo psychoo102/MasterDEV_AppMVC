@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MVC.Contexts;
 using MVC.Models;
 
-namespace MVC.Pages.Apps
+namespace MVC.Pages.Dashboard.Apps
 {
     public class IndexModel : PageModel
     {

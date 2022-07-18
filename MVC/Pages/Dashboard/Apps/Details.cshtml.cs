@@ -8,19 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using MVC.Contexts;
 using MVC.Models;
 
-namespace MVC.Pages.Apps
+namespace MVC.Pages.Dashboard.Apps
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly MVC.Contexts.AppsContext _context;
 
-        public DeleteModel(MVC.Contexts.AppsContext context)
+        public DetailsModel(MVC.Contexts.AppsContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-      public App App { get; set; } = default!;
+      public App App { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +29,6 @@ namespace MVC.Pages.Apps
             }
 
             var app = await _context.Apps.FirstOrDefaultAsync(m => m.id == id);
-
             if (app == null)
             {
                 return NotFound();
@@ -40,24 +38,6 @@ namespace MVC.Pages.Apps
                 App = app;
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null || _context.Apps == null)
-            {
-                return NotFound();
-            }
-            var app = await _context.Apps.FindAsync(id);
-
-            if (app != null)
-            {
-                App = app;
-                _context.Apps.Remove(App);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }

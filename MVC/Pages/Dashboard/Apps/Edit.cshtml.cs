@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MVC.Models;
 using MVC.Models.Validations;
 
-namespace MVC.Pages.Apps
+namespace MVC.Pages.Dashboard.Apps
 {
     public class EditModel : PageModel
     {

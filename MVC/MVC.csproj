@@ -16,16 +16,16 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Swashbuckle.AspNetCore" />
-    <None Remove="Pages\Apps\" />
     <None Remove="Models\Validations\" />
     <None Remove="Pages\Dashboard\" />
+    <None Remove="Pages\Dashboard\Apps\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Contexts\" />
-    <Folder Include="Pages\Apps\" />
     <Folder Include="Models\Validations\" />
     <Folder Include="Pages\Dashboard\" />
+    <Folder Include="Pages\Dashboard\Apps\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="6.0.5" />
