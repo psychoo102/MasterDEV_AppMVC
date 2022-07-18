@@ -1,22 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MVC.Contexts;
 using MVC.Models;
+using MVC.Models.Validations;
 
 namespace MVC.Pages.Apps
 {
     public class EditModel : PageModel
     {
+        private IWebHostEnvironment _environment;
         private readonly MVC.Contexts.AppsContext _context;
 
-        public EditModel(MVC.Contexts.AppsContext context)
+        public EditModel(IWebHostEnvironment environment, MVC.Contexts.AppsContext context)
         {
+            _environment = environment;
             _context = context;
         }
 

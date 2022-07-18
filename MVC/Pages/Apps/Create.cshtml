@@ -11,22 +11,27 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="App.name" class="control-label"></label>
+                <label asp-for="App.name" class="control-label">Nazwa projektu</label>
                 <input asp-for="App.name" class="form-control" />
                 <span asp-validation-for="App.name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="App.www" class="control-label"></label>
+                <label asp-for="App.www" class="control-label">Adres</label>
                 <input asp-for="App.www" class="form-control" />
                 <span asp-validation-for="App.www" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="App.version" class="control-label"></label>
+                <label asp-for="App.version" class="control-label">Wersja</label>
                 <input asp-for="App.version" class="form-control" />
                 <span asp-validation-for="App.version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectFiles" class="control-label">Plik:</label>
+                <input type="file" asp-for="ProjectFiles" class="form-control" />
+                <span asp-validation-for="ProjectFiles" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
